@@ -99,7 +99,7 @@ public class TechJobs {
                 in.nextLine();
             } else {
                 String line = in.nextLine();
-                boolean shouldQuit = line.equals("x");
+                boolean shouldQuit = line.equals("x"); //ends of printing available choices
                 if (shouldQuit) {
                     return null;
                 }
@@ -120,6 +120,23 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+if (someJobs.isEmpty()) {
+    System.out.println("No Results");
+    return;
+}
+for (HashMap<String, String> job: someJobs) {
+
+    String jobDescription = "\n*****\n";
+
+    for (Map.Entry<String, String> jobColumn: job.entrySet()) {
+        jobDescription += (jobColumn.getKey() + ": " + jobColumn.getValue() + "\n");
+    }
+    jobDescription += "*****";
+
+    System.out.println(jobDescription);
+
+}
+
+
     }
 }

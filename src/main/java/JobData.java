@@ -1,4 +1,4 @@
-import org.apache.commons.csv.CSVFormat;
+ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
@@ -95,7 +95,21 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+
+            for (String key : row.keySet()) {
+                String aValue = row.get(key);
+
+                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(row);
+
+                    break;
+                }
+            }
+        }
+        return jobs;
     }
 
     /**
@@ -140,3 +154,5 @@ public class JobData {
     }
 
 }
+//loop over the array list,loop over hashmap, and then print out the key and the value, call the get on the keys, use get with the key parameter to get the value back
+ //its a nested for loop
